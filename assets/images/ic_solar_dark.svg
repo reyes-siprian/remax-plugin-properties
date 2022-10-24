@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/24/Propiedades/ic_solar</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6.73684211,20.9473684 L12.5263158,20.9473684 L12.5263158,18.3157895 L6.73684211,18.3157895 L6.73684211,20.9473684 Z M3.05263158,20.9473684 L5.68421053,20.9473684 L5.68421053,12.5263158 L3.05263158,12.5263158 L3.05263158,20.9473684 Z M3.05263158,3.05263158 L8.84210526,3.05263158 L8.84210526,7.47578947 C8.84210526,7.76736842 9.07789474,8.00210526 9.36842105,8.00210526 C9.65894737,8.00210526 9.89473684,7.76736842 9.89473684,7.47578947 L9.89473684,3.05263158 L12.5263158,3.05263158 L12.5263158,11.4736842 L3.05263158,11.4736842 L3.05263158,3.05263158 Z M6.73684211,17.2631579 L12.5263158,17.2631579 L12.5263158,12.5263158 L6.73684211,12.5263158 L6.73684211,17.2631579 Z M2,2 L2,11.4736842 L2,22 L13.5789474,22 L22,22 L22,11.4736842 L17.2747368,11.4736842 C16.9831579,11.4736842 16.7484211,11.7094737 16.7484211,12 C16.7484211,12.2905263 16.9831579,12.5263158 17.2747368,12.5263158 L20.9473684,12.5263158 L20.9473684,20.9473684 L13.5789474,20.9473684 L13.5789474,2 L2,2 Z" id="path-1"></path>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.00_Detalle-de-propiedad" transform="translate(-426.000000, -828.000000)">
+            <g id="Carateristicas" transform="translate(128.000000, 806.000000)">
+                <g id="Terreno" transform="translate(288.000000, 16.000000)">
+                    <g id="Icons/24/Propiedades/ic_solar" transform="translate(8.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Page-1"></g>
+                        <g id="Colors/Darker" mask="url(#mask-2)" fill="#404041" fill-rule="evenodd">
+                            <rect id="color" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

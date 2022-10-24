@@ -1,0 +1,279 @@
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('../fonts/gotham-medium.otf');
+}
+
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url('../fonts/gotham-book-regular.otf');
+}
+.property-entry {
+    max-width: 90%;
+}
+.property__cover {
+    position: relative;
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
+    display: none;
+}
+
+.property-entry .realestate-code-container {
+    border-radius: 2px 0 0 2px;
+    padding-bottom: 16px;
+}
+
+.property-entry .realestate-code-container .realestate-code {
+    border: 1px dashed #C3C3C3;
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+    background-color: #FFF;
+    display: inline-block;
+    margin: 0;
+    padding: 5px 10px;
+
+}
+
+.property-entry .realestate-code-container .realestate-code-icon {
+    border-radius: 0 2px 2px 0;
+    background-color: #007DC3;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #007DC3;
+    padding: 5px 7px;
+    cursor: pointer;
+    margin-left: -3px;
+    vertical-align: middle;
+}
+.realestate-price {
+    display: inline-block;
+    margin-right: 4em;
+}
+.price-label,
+.price-value,
+.property-entry .realestate-badge,
+.property-entry .realestate-title,
+.property-entry .realestate-subtitle {
+    font-family: 'Gotham-Book', Helvetica, sans-serif;
+}
+.property-entry .realestate-title {
+    font-weight: 300;
+    line-height: 43px;
+    font-size: 2.2rem;
+    color: #383838;
+}
+.property-entry .realestate-subtitle {
+    font-weight: 300;
+    line-height: 22px;
+    font-size: 1.2rem;
+}
+.price-label {
+    color: #4A4A4A;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.price-value {
+    color: #DC1A2D;
+    line-height: 29px;
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
+.property-entry .realestate-badge {
+    background-color: rgba(148, 156, 161, .2);
+    border-radius: 2px;
+    display: inline-block;
+    height: 32px;
+    padding: 5px 14px;
+    margin-right: 0.8em;
+    margin-bottom: 0.6em;
+    margin-top: 0.6em;
+    line-height: 22px;
+    color: #383838;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: pnum;
+    font-variant-numeric: proportional-nums;
+    vertical-align: middle;
+}
+.realestate-description-title {
+    line-height: 2em;
+    color: #383838;
+    font-family: 'Gotham-Medium', Helvetica, sans-serif;
+}
+.realestate-improvement-title {
+    font-weight: 700;
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0;
+    color: #383838;
+}
+.realestates-imrpovements-header {
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: 'Gotham-Medium', Helvetica, sans-serif;
+    color: #383838;
+}
+.realestate-improvements .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.realestate-improvements .row .col-md-12 {
+    width: 100%;
+    box-sizing: border-box;
+}
+.realestate-improvements .row .col-md-6 {
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+}
+
+.rp-footerbar {
+    width: 100% !important;
+    margin-top: 30px;
+}
+
+/**** Slider *****/
+.property__cover-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.swiper {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #cccc !important;
+}
+.rpd-consultants {
+    max-width: 330px;
+    margin-left: auto;
+    padding: 10px 15px;
+    background-color: #fff;
+}
+.rpd-consultant {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid rgba(195,195,195,.64);
+}
+.rpd-consultants__title {
+    font-size: 18px;
+    text-align: center;
+    line-height: 22px;
+}
+.rpd-consultant__profile-picture,
+.rpd-consultant__details {
+    display: inline-block;
+    line-height: 20px;
+}
+.rpd-consultant__profile-picture {
+    font-weight: 600;
+}
+.rpd-consultant__details {
+    font-weight: 100;
+}
+.rpd-consultant__profile-picture {
+    width: 82px;
+    height: 82px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    border: 1px solid #C3C3C3;
+    margin-right: 10px;
+}
+.rpd-consultant__name,
+.rpd-consultant__group {
+    margin-bottom: 0;
+}
+.rpd-consultant__name {
+    font-weight: 500;
+}
+.rpd-consultant__group {
+    font-weight: 100;
+}
+.rpd-consultant__info {
+    display: flex;
+    align-items: center;
+}
+.rpd-consultant__contact {
+    display: inline-block;
+    width: calc(50% - 5px);
+    margin-bottom: 15px;
+}
+.rpd-consultant__contact--email {
+    display: block;
+    width: 100%;
+}
+.rpd-consultant__contact__title,
+.rpd-consultant__contact__info {
+    margin-bottom: 0;
+    line-height: 22px;
+}
+.rpd-consultant__contact__info {
+    font-weight: 500;
+}
+.rpd-consultant__contact__info:hover {
+    text-decoration: none;
+}
+.rpd-consultant__contact__title {
+    font-weight: 100;
+    font-size: 1rem;
+}
+img.rpd-consultant__contact__icon {
+    max-width: 15px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 470px) {
+    .swiper-movil,
+    .property__cover {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 395px) {
+    .realestate-improvements .row .col-md-6 {
+        width: 100%;
+    }
+    .property-title {
+        font-size: 1.4rem;
+        line-height: 25px;
+    }
+}

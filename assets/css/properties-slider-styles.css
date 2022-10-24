@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('../fonts/gotham-medium.otf');
+}
+
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url('../fonts/gotham-book-regular.otf');
+}
+
+.properties-slider__desktop {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: calc(25% - 10px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+.card--property {
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #383838;
+    line-height: 20px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+.card--property:hover {
+    color: #383838;
+    text-decoration: none;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
+}
+.card__content,
+.card__thumbnail {
+width: 100%;
+}
+
+.card__thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 240px;
+}
+
+.card__thumbnail__exclusive {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.card__description__price,
+.card__description__title--small,
+.card__description__title {
+    font-weight: 500;
+    font-family: 'Gotham-Medium', Helvetica, sans-serif;
+    margin-bottom: 0;
+}
+
+.card__description__price {
+    color: #B22B2E;
+}
+
+.card__description__title--small {
+    font-size: 12.5px;
+    font-weight: 100;
+    font-family: unset;
+}
+
+.card__description__address__mansory {
+    font-family: 'Gotham-Book', Helvetica, sans-serif;
+    font-weight: 100;
+
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.card__content {
+    padding: 10px;
+}
+
+.card__description {
+    border-bottom: 1px solid #cccb;
+    margin-bottom: 10px;
+}
+
+.card__details ul {
+    display: block;
+    list-style-type: disc;
+    margin: 0;
+}
+
+.card--property .card__details li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.icon-remax-bathroom,
+.icon-remax-bed,
+.icon-remax-meters,
+.icon-remax-parking {
+    display: inline-block;
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+    vertical-align: text-top;
+    background-size: contain;
+}
+
+.icon {
+    font-family: icon-remax !important;
+    speak: none;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    line-height: 1;
+}
+
+.rooms,
+.bathrooms,
+.sqm-construction {
+    font-size: 12px;
+    font-weight: 600;
+    color: #383838;
+}
+
+.bathrooms,
+.sqm-construction {
+    margin-left: 10px;
+}
+
+.icon-remax-bed {
+    background-image: url(../images/ic_bedroom_dark.svg);
+}
+
+.icon-remax-bathroom {
+    background-image: url(../images/ic_bathroom_dark.svg);
+}
+
+.icon-remax-meters {
+    background-image: url(../images/ic_solar_dark.svg);
+}
+
+.properties-slider__movil {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    .properties-slider__desktop {
+        display: none;
+    }
+    .properties-slider__movil {
+        display: block;
+    }
+    .swiper-slide {
+        max-width: 270px;
+    }
+    .card {
+        width: 100%;
+    }
+}

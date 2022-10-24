@@ -1,0 +1,151 @@
+.rpd-featured {
+    max-width: 330px;
+    margin-left: auto;
+}
+.rpd-featured__card-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rpd-featured__card {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+.rpd-featured__card--property {
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #383838;
+    line-height: 20px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+.rpd-featured__card--property:hover {
+    color: #383838;
+    text-decoration: none;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
+}
+.rpd-featured__card__content,
+.rpd-featured__card__thumbnail {
+width: 100%;
+}
+
+.rpd-featured__card__thumbnail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 240px;
+}
+
+.rpd-featured__card__thumbnail__exclusive {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.rpd-featured__card__description__price,
+.rpd-featured__card__description__title--small,
+.rpd-featured__card__description__title {
+    font-weight: 500;
+    font-family: 'Gotham-Medium', Helvetica, sans-serif;
+    margin-bottom: 0;
+}
+
+.rpd-featured__card__description__price {
+    color: #B22B2E;
+}
+
+.rpd-featured__card__description__title--small {
+    font-size: 12.5px;
+    font-weight: 100;
+    font-family: unset;
+}
+
+.rpd-featured__card__description__address__mansory {
+    font-family: 'Gotham-Book', Helvetica, sans-serif;
+    font-weight: 100;
+
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.rpd-featured__card__content {
+    padding: 10px;
+}
+
+.rpd-featured__card__description {
+    border-bottom: 1px solid #cccb;
+    margin-bottom: 10px;
+}
+
+.rpd-featured__card__details ul {
+    display: block;
+    list-style-type: disc;
+    margin: 0;
+}
+
+.rpd-featured__card--property .rpd-featured__card__details li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.icon-remax-bathroom,
+.icon-remax-bed,
+.icon-remax-meters,
+.icon-remax-parking {
+    display: inline-block;
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+    vertical-align: text-top;
+    background-size: contain;
+}
+
+.icon {
+    font-family: icon-remax !important;
+    speak: none;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    line-height: 1;
+}
+
+.rpd-featured__rooms,
+.rpd-featured__bathrooms,
+.rpd-featured__sqm-construction {
+    font-size: 12px;
+    font-weight: 600;
+    color: #383838;
+}
+
+.rpd-featured__bathrooms,
+.rpd-featured__sqm-construction {
+    margin-left: 10px;
+}
+
+.icon-remax-bed {
+    background-image: url(../images/ic_bedroom_dark.svg);
+}
+
+.icon-remax-bathroom {
+    background-image: url(../images/ic_bathroom_dark.svg);
+}
+
+.icon-remax-meters {
+    background-image: url(../images/ic_solar_dark.svg);
+}
+
+.rpd-featured__rp-footerbar {
+    width: 100% !important;
+    margin-top: 30px;
+}
