@@ -10,8 +10,8 @@ var swiper_movil = new Swiper(".swiper", {
         disableOnInteraction: true,
         reverseDirection: false,
     },
-    // navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev",
-    // },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });

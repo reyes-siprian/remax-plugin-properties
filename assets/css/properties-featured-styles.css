@@ -90,6 +90,7 @@ width: 100%;
     display: block;
     list-style-type: disc;
     margin: 0;
+    padding-left: 0;
 }
 
 .rpd-featured__card--property .rpd-featured__card__details li {

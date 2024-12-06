@@ -1,5 +1,6 @@
 .rp-search {
-    margin-bottom: 30px;
+    max-width: 1200px !important;
+    margin: 30px auto;
 }
 .rp-search__filter,
 .rp-search__property-status label {
@@ -7,6 +8,51 @@
 }
 .rp-search__filter {
     width: calc(25% - 10px);
+}
+
+.rp-search__label__title-currency {
+    display: block;
+    text-align: center;
+}
+.rp-search__filter-price-currency {
+    display: flex;
+    height: 43px;
+    align-items: center;
+    position: relative;
+    & label {
+        width: 50%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 50px;
+        padding: 5px 10px;
+    }
+}
+.rp-search__filter-prices {
+    width: calc(50% - 10px);
+    display: flex;
+    gap: 10px;
+    .rp-search__filter-price {
+        width: calc(33.333% - 10px);
+    }
+    .rp-search__filter-price-input {
+        display: none;
+    }
+    &:has(#currency-us:checked) {
+        & .rp-search__filter-price-currency label:first-child {
+            background-color: #2291c9;
+            color: #fff;
+        }
+        
+    }
+    &:has(#currency-rd:checked) {
+        & .rp-search__filter-price-currency label:last-child {
+            background-color: #2291c9;
+            color: #fff;
+        }
+        
+    }
 }
 .rp-search__radio {
     display: none;
@@ -35,6 +81,7 @@
     border-radius: 5px;
     border: 1px solid #2291c966;
     cursor: pointer;
+    font-size: 14px;
 }
 #rp_exclusive:checked + label {
     background-color: #2291c9;
@@ -42,6 +89,10 @@
 }
 .rp-search__submit {
     background-color: #2291c9 !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #2291c9;
 }
 .rp-search__filters {
     background-color: #f7f7f7;
@@ -59,11 +110,15 @@
 .rp-search__filter select {
     width: 100%;
     height: 43px;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 991px) {
     .rp-search__filter {
         width: calc(50% - 10px);
+    }
+    .rp-search__filter-prices {
+        width: calc(100% - 10px);
     }
 }
 
@@ -75,5 +130,35 @@
         display: block !important;
         text-align: center;
         margin-bottom: 30px;
+    }
+    .rp-search__submit {
+        width: 300px;
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    .rp-search__property-status {
+        .property-status_label {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+    }
+}
+@media screen and (max-width: 450px) {
+    .rp-search__filter-prices {
+        flex-wrap: wrap;
+        .rp-search__filter-price {
+            width: calc(50% - 10px);
+        }
+        .rp-search__filter-price:last-child {
+            width: calc(100%);
+
+        }
+    }
+    .rp-search__property-status {
+        .property-status_label {
+            font-size: 12px;
+            padding: 5px;
+        }
     }
 }

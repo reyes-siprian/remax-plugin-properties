@@ -16,7 +16,7 @@
                                 <span class="description"><?php esc_attr_e('Place your token here.', 'remax-properties'); ?></span><br>
 
                                 <input type="url" name="details_page" value="<?= $details_page ? $details_page : ''; ?>" class="regular-text code" style="margin-bottom: 10px;"  />
-                                <span class="description"><?php esc_attr_e('Put property page url to redirect sliders.', 'remax-properties'); ?></span><br>
+                                <span class="description"><?php esc_attr_e('Put property page url to redirect sliders and properties.', 'remax-properties'); ?></span><br>
 
                                 <fieldset>
                                     <label for="agency_properties">
@@ -66,7 +66,7 @@
                             <p style="margin-bottom: 10px;"><code style="background: #191E23;color: #fff;">[remax-properties-page]</code> to generate the list of properties.</p>
                             <p style="margin-bottom: 10px;"><code style="background: #191E23;color: #fff;">[remax-properties-slider]</code> to generate the slider.</p>
                             <p style="margin-bottom: 10px;"><code style="background: #191E23;color: #fff;">[remax-properties-search]</code> to generate the search engine.</p>
-                            <p style="margin-bottom: 50px;"><code style="background: #191E23;color: #fff;">[remax-properties-featured]]</code> to generate the featured properties.</p>
+                            <p style="margin-bottom: 50px;"><code style="background: #191E23;color: #fff;">[remax-properties-featured]</code> to generate the featured properties.</p>
 						</div>
 						<!-- .inside -->
 

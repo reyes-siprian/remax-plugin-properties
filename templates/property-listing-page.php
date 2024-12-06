@@ -1,11 +1,20 @@
-<?= do_shortcode('[remax-properties-search]'); ?>
+<?php 
 
+    do_shortcode('[remax-properties-search]'); 
+
+    if(!$haveResult){
+        echo "<h2 style='text-align: center; width: 100%;'>Sin Resultados</h2>";
+        return;
+    }
+
+?>
 <div class="rp-container">
     <div class="card-container <?= $card_container_class ?>">
 
         <?php foreach ($properties->data as $property) : ?>
-            <div class="card"><a href="<?= $page_url . "?code={$property->id}" ?>" title="<?= $property->realestate_type_language->description ?> en Alquiler en <?= $property->sector->description ?>, <?= $property->city->description ?>" id="article" class="card--property ">
-                    <div class="card__thumbnail" style="background-image: url(&quot;https://images.remaxrd.com/media/pictures/small/<?= $property->pictures[0]->path ?>&quot;);">
+            
+            <div class="card"><a href="<?= $page_url . "?code={$property->id}" ?>" title="<?= $property->realstate_type ?> en Alquiler en <?= $property->sector ?>, <?= $property->city ?>" id="article" class="card--property ">
+                    <div class="card__thumbnail" style="background-image: url(&quot;<?= $property->main_picture->small ?>&quot;);">
 
                         <!-- <img class="card__thumbnail__exclusive" src="https://remaxrd.com/assets/img/exclusiva.png" style="position: absolute; right: 0px; top: 0px;"> -->
 
@@ -13,25 +22,25 @@
                     </div>
                     <div class="card__content">
                         <div class="card__description">
-                            <p class="card__description__title"><?= $property->realestate_type_language->description ?></p>
-                            <p class="card__description__address__mansory"><span><?= $property->sector->description . ', ' . $property->city->description ?></span></p>
+                            <p class="card__description__title"><?= $property->realstate_type ?></p>
+                            <p class="card__description__address__mansory"><span><?= $property->sector . ', ' . $property->city ?></span></p>
                             <div>
                                 <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Código</p>
                                 <p class="card__description__title mb-10"><span><?= $property->id ?></span></p>
 
                                 <?php if (isset($property->price) && $property->price > 0) : ?>
-                                    <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->businesstype_language->description ?></p>
-                                    <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
+                                    <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->business_type ?></p>
+                                    <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
                                 <?php endif; ?>
                                 
                                 <?php if (isset($property->alternate_price) && $property->alternate_price > 0) : ?>
                                     <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Alquiler</p>
-                                    <p class="card__description__price mb-10"><span><?= isset($property->alt_currency->nostd_iso) ? $property->alt_currency->nostd_iso : $property->currency->nostd_iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
+                                    <p class="card__description__price mb-10"><span><?= isset($property->alternative_currency->iso) ? $property->alternative_currency->iso : $property->currency->iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
                                 <?php endif; ?>
 
-                                <?php if (isset($property->project[0]->minimum_price) && $property->project[0]->minimum_price > 0) : ?>
+                                <?php if (isset($property->project->minimum_price) && $property->project->minimum_price > 0) : ?>
                                     <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Venta</p>
-                                    <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->project[0]->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project[0]->maximum_price, 0, '.', ','); ?></span></p>
+                                    <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->project->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project->maximum_price, 0, '.', ','); ?></span></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -67,7 +76,7 @@
         </div>
     <?php endif; ?>
 
-    <?php if ($properties->last_page > 1) : ?>
+    <?php if ($properties->meta->last_page > 1) : ?>
         <section class="paginacion">
             <ul>
                 <?php
@@ -88,12 +97,13 @@
                     }
                 }
 
-                foreach ($properties->links as $post => $link) {
+
+                foreach ($properties->meta->links as $post => $link) {
                     if ($link->url != NULl && $post == 0) {
                         $p = strpos($link->url, '=');
                         $text = substr($link->url, $p, strlen($link->url));
                         $prev = "<li><a href='{$pagination_url}pag{$text}'>&laquo;</a></li>";
-                    } elseif ($link->url != NULl && $post == count($properties->links) - 1) {
+                    } elseif ($link->url != NULl && $post == count($properties->meta->links) - 1) {
                         $p = strpos($link->url, '=');
                         $text = substr($link->url, $p, strlen($link->url));
                         $next = "<li><a href='{$pagination_url}pag{$text}'>&raquo;</a></li>";
@@ -102,7 +112,7 @@
                             array_push($paginations, "<li><a href='{$pagination_url}pag={$link->label}'>{$link->label}</a></li>");
                         } else {
                             $active_post = $post - 1;
-                            array_push($paginations, "<li><a href='{$pagination_url}pag={$link->label}' class='active'>{$link->label}</a></li>");
+                            array_push($paginations, "<li><a href='JavaScript:void(0);' class='active'>{$link->label}</a></li>");
                         }
                     }
                 }

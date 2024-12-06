@@ -12,6 +12,7 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .card {
@@ -25,11 +26,12 @@
     color: #383838;
     line-height: 20px;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
-
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
+    text-decoration: none !important;
 }
 .card--property:hover {
     color: #383838;
@@ -85,17 +87,21 @@ width: 100%;
 
 .card__content {
     padding: 10px;
+    box-sizing: border-box;
+    flex-grow: 1;
 }
 
 .card__description {
     border-bottom: 1px solid #cccb;
     margin-bottom: 10px;
+    height: calc(100% - 59px);
 }
 
 .card__details ul {
     display: block;
     list-style-type: disc;
     margin: 0;
+    padding-left: 0;
 }
 
 .card--property .card__details li {

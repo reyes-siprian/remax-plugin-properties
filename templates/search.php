@@ -17,27 +17,39 @@
             </div>
 
             <div class="rp-search__filter">
-                <span class="rp-search__label__title">Provincia</span>
+                <span class="rp-search__label__title">Ciudad</span>
                 <select class="rp-search__city" name="province">
-                    <option value="" selected>Todas</option>
-                    <?php foreach($provinces as $province): ?>
-                        <option value="<?= $province->id ?>"><?= $province->description ?></option>
+                    <option value="" selected>TODAS</option>
+                    <?php foreach($provinces->data as $province): ?>
+                        <option value="<?= $province->id ?>" <?= $city == $province->id ? 'selected' : '' ?>><?= $province->description ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
 
-            <div class="rp-search__filter">
-                <span class="rp-search__label__title">Precio Min.</span>
-                <input type="number" name="min-price" id="">
-            </div>
+            <div class="rp-search__filter rp-search__filter-prices">
+                <div class="rp-search__filter-price">
+                    <span class="rp-search__label__title">Precio Min.</span>
+                    <input type="number" name="min-price" id="" value="<?= $minPrice ?>">
+                </div>
+    
+                <div class="rp-search__filter-price">
+                    <span class="rp-search__label__title">Precio Max.</span>
+                    <input type="number" name="max-price" id="" value="<?= $maxPrice ?>">
+                </div>
 
-            <div class="rp-search__filter">
-                <span class="rp-search__label__title">Precio Max.</span>
-                <input type="number" name="max-price" id="">
+                <div class="rp-search__filter-price">
+                    <span class="rp-search__label__title rp-search__label__title-currency">Moneda</span>
+                    <span class="rp-search__filter-price-currency">
+                        <label for="currency-us">USD</label>
+                        <label for="currency-rd">DOP</label>
+                    </span>
+                    <input type="radio" name="currency" id="currency-us" class="rp-search__filter-price-input" value="us" <?= $currency == 'us' ? 'checked' : '' ?>>
+                    <input type="radio" name="currency" id="currency-rd" class="rp-search__filter-price-input" value="rd" <?= $currency == 'rd' ? 'checked' : '' ?>>
+                </div>
             </div>
 
             <div class="rp-search__filter-footer">
-                <input type="checkbox" name="exclusive" id="rp_exclusive" value="1">
+                <input type="checkbox" name="exclusive" id="rp_exclusive" value="true" <?= $isExclusive ? 'checked' : '' ?>>
                 <label for="rp_exclusive" class="rp-search__exclusive" >Propiedades Exclusivas</label>
     
                 <input type="submit" class="rp-search__submit" value="Buscar">

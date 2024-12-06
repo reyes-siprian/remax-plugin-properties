@@ -3,8 +3,8 @@
         <div class="properties-slider__desktop">
     
             <?php foreach ($properties->data as $key => $property) : ?>
-                <div class="card"><a href="<?= get_option('remax_properties_page_url') . "/?code={$property->id}" ?>" title="<?= $property->realestate_type_language->description ?> en Alquiler en <?= $property->sector->description ?>, <?= $property->city->description ?>" id="article" class="card--property ">
-                        <div class="card__thumbnail" style="background-image: url(&quot;https://images.remaxrd.com/media/pictures/small/<?= $property->pictures[0]->path ?>&quot;);">
+                <div class="card"><a href="<?= get_option('remax_properties_page_url') . "/?code={$property->id}" ?>" title="<?= $property->realstate_type ?> en Alquiler en <?= $property->sector ?>, <?= $property->city ?>" id="article" class="card--property ">
+                        <div class="card__thumbnail" style="background-image: url(&quot;<?= $property->main_picture->small ?>&quot;);">
     
                             <!-- <img class="card__thumbnail__exclusive" src="https://remaxrd.com/assets/img/exclusiva.png" style="position: absolute; right: 0px; top: 0px;"> -->
     
@@ -12,25 +12,25 @@
                         </div>
                         <div class="card__content">
                             <div class="card__description">
-                                <p class="card__description__title"><?= $property->realestate_type_language->description ?></p>
-                                <p class="card__description__address__mansory"><span><?= $property->sector->description . ', ' . $property->city->description ?></span></p>
+                                <p class="card__description__title"><?= $property->realstate_type ?></p>
+                                <p class="card__description__address__mansory"><span><?= $property->sector . ', ' . $property->city ?></span></p>
                                 <div>
                                     <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Código</p>
                                     <p class="card__description__title mb-10"><span><?= $property->id ?></span></p>
     
                                     <?php if (isset($property->price) && $property->price > 0) : ?>
-                                        <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->businesstype_language->description ?></p>
-                                        <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
+                                        <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->business_type ?></p>
+                                        <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
                                     <?php endif; ?>
     
                                     <?php if (isset($property->alternate_price) && $property->alternate_price > 0) : ?>
                                         <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Alquiler</p>
-                                        <p class="card__description__price mb-10"><span><?= $property->alt_currency->nostd_iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
+                                        <p class="card__description__price mb-10"><span><?= $property->alternative_currency->iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
                                     <?php endif; ?>
     
-                                    <?php if (isset($property->project[0]->minimum_price) && $property->project[0]->minimum_price > 0) : ?>
+                                    <?php if (isset($property->project->minimum_price) && $property->project->minimum_price > 0) : ?>
                                         <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Venta</p>
-                                        <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->project[0]->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project[0]->maximum_price, 0, '.', ','); ?></span></p>
+                                        <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->project->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project->maximum_price, 0, '.', ','); ?></span></p>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                     <?php foreach ($properties->data as $key => $property) : ?>
                         <div class="swiper-slide swiper-lazy">
         
-                            <div class="card"><a href="<?= get_option('remax_properties_page_url') . "/?code={$property->id}" ?>" title="<?= $property->realestate_type_language->description ?> en Alquiler en <?= $property->sector->description ?>, <?= $property->city->description ?>" id="article" class="card--property ">
-                                <div class="card__thumbnail" style="background-image: url(&quot;https://images.remaxrd.com/media/pictures/small/<?= $property->pictures[0]->path ?>&quot;);">
+                            <div class="card"><a href="<?= get_option('remax_properties_page_url') . "/?code={$property->id}" ?>" title="<?= $property->business_type ?> en Alquiler en <?= $property->sector ?>, <?= $property->city ?>" id="article" class="card--property ">
+                                <div class="card__thumbnail" style="background-image: url(&quot;<?= $property->main_picture->small ?>&quot;);">
         
                                     <!-- <img class="card__thumbnail__exclusive" src="https://remaxrd.com/assets/img/exclusiva.png" style="position: absolute; right: 0px; top: 0px;"> -->
         
@@ -81,25 +81,25 @@
                                 </div>
                                 <div class="card__content">
                                     <div class="card__description">
-                                        <p class="card__description__title"><?= $property->realestate_type_language->description ?></p>
-                                        <p class="card__description__address__mansory"><span><?= $property->sector->description . ', ' . $property->city->description ?></span></p>
+                                        <p class="card__description__title"><?= $property->business_type ?></p>
+                                        <p class="card__description__address__mansory"><span><?= $property->sector . ', ' . $property->city ?></span></p>
                                         <div>
                                             <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Código</p>
                                             <p class="card__description__title mb-10"><span><?= $property->id ?></span></p>
         
                                             <?php if (isset($property->price) && $property->price > 0) : ?>
-                                                <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->businesstype_language->description ?></p>
-                                                <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
+                                                <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;"><?= $property->business_type ?></p>
+                                                <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->price, 0, '.', ','); ?></span></p>
                                             <?php endif; ?>
         
                                             <?php if (isset($property->alternate_price) && $property->alternate_price > 0) : ?>
                                                 <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Alquiler</p>
-                                                <p class="card__description__price mb-10"><span><?= $property->alt_currency->nostd_iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
+                                                <p class="card__description__price mb-10"><span><?= $property->alternative_currency->iso ?>$ <span><?= number_format($property->alternate_price, 0, '.', ','); ?></span></p>
                                             <?php endif; ?>
         
-                                            <?php if (isset($property->project[0]->minimum_price) && $property->project[0]->minimum_price > 0) : ?>
+                                            <?php if (isset($property->project->minimum_price) && $property->project->minimum_price > 0) : ?>
                                                 <p class="card__description__title--small" style="font-family: unset; font-size: 12.5px;">Venta</p>
-                                                <p class="card__description__price mb-10"><span><?= $property->currency->nostd_iso ?>$ <span><?= number_format($property->project[0]->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project[0]->maximum_price, 0, '.', ','); ?></span></p>
+                                                <p class="card__description__price mb-10"><span><?= $property->currency->iso ?>$ <span><?= number_format($property->project->minimum_price, 0, '.', ','); ?> - <?= number_format($property->project->maximum_price, 0, '.', ','); ?></span></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -131,8 +131,8 @@
                     <?php endforeach; ?>
                 </div>
                 <!-- If we need navigation buttons -->
-                <!-- <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div> -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
     <?php else: ?>

@@ -11,10 +11,21 @@ class Property {
             $this->_api = 'https://api.remaxrd.com/v1-agent/';
         }
 
+        $this->_agency_properties = '';
         if(get_option('remax_properties_agency_properties') == true) {
             $this->_agency_properties = '&my_agency=true';
-        } else {
-            $this->_agency_properties = '';
+        }
+
+        $this->_currency = isset($_GET['currency']) && $_GET['currency'] !== '' ? $_GET['currency'] : 'us';
+
+        $this->_price = '';
+        if(isset($_GET['min-price']) && $_GET['min-price'] !== '') {
+            $this->_price = "price=>={$_GET['min-price']},{$this->_currency}";
+        }
+
+        if(isset($_GET['max-price']) && $_GET['max-price'] !== '') {
+            $min = isset($_GET['min-price']) ? $_GET['min-price'] : 0;
+            $this->_price = "price={$min}...{$_GET['max-price']},{$this->_currency}";
         }
 
         $this->_featured = get_option('remax_properties_featured');
@@ -23,14 +34,14 @@ class Property {
         $this->_minPrice = isset($_GET['min-price']) && $_GET['min-price'] != '' ? $_GET['min-price'] : '';
         $this->_maxPrice = isset($_GET['max-price']) && $_GET['max-price'] != '' ? $_GET['max-price'] : '';
         $this->_exclusive = isset($_GET['exclusive']) && $_GET['exclusive'] != '' ? $_GET['exclusive'] : '';
-        $this->_featuredProperties = isset($_GET['property-id']) && $_GET['property-id'] != '' ? "&featured_properties[]={$_GET['property-id']}" : '';
+        $this->_featuredProperties = isset($_GET['property-id']) && $_GET['property-id'] != '' ? "&similarCode={$_GET['property-id']}" : '';
 
         if(!isset($_GET['property-status']) || $_GET['property-status'] == 'all') {
             $this->_propertyStatus = "";
         } elseif(isset($_GET['property-status']) && $_GET['property-status'] == 'sell') {
-            $this->_propertyStatus = "&is_for_sell=1";
+            $this->_propertyStatus = "&business=sale";
         } elseif(isset($_GET['property-status']) && $_GET['property-status'] == 'rent'){
-            $this->_propertyStatus = "&is_for_rent=1";
+            $this->_propertyStatus = "&business=lease";
         }
 
     }
@@ -41,10 +52,10 @@ class Property {
     public function getPropertiesData($type, $code = '') {
         switch ($type) {
             case 'properties':
-                $api = $this->_api . $type . "/?pp=10&province_id={$this->_province}&min_price={$this->_minPrice}&max_price={$this->_maxPrice}&is_exclusive={$this->_exclusive}{$this->_propertyStatus}{$this->_featuredProperties}{$this->_page}{$this->_agency_properties}";
+                $api = $this->_api . "realestates/?perPage=10&city={$this->_province}&{$this->_price}&exclusives={$this->_exclusive}{$this->_propertyStatus}{$this->_featuredProperties}{$this->_page}{$this->_agency_properties}";
                 break;
             case 'property':
-                $api = $this->_api . "properties/{$code}";
+                $api = $this->_api . "realestates/{$code}";
                 break;
             case 'profile':
                 $api = $this->_api . $type;
@@ -61,6 +72,10 @@ class Property {
                 return 'invalid option';
                 break;
         }
+
+        // echo "<pre>";
+        // var_dump($api);
+        // echo "</pre>";
 
         $curl = curl_init($api);
         curl_setopt($curl, CURLOPT_URL, $api);
@@ -86,7 +101,7 @@ class Property {
     }
 
     public function getAgentProvices() {
-        $api = $this->_api . 'provinces';
+        $api = $this->_api . 'cities?capital_priority=1';
 
         $curl = curl_init($api);
         curl_setopt($curl, CURLOPT_URL, $api);
