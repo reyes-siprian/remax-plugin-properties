@@ -1,6 +1,4 @@
-<?php 
-
-    do_shortcode('[remax-properties-search]'); 
+<?php
 
     if(!$haveResult){
         echo "<h2 style='text-align: center; width: 100%;'>Sin Resultados</h2>";

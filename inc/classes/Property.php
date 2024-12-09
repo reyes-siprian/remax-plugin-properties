@@ -73,10 +73,6 @@ class Property {
                 break;
         }
 
-        // echo "<pre>";
-        // var_dump($api);
-        // echo "</pre>";
-
         $curl = curl_init($api);
         curl_setopt($curl, CURLOPT_URL, $api);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -87,9 +83,10 @@ class Property {
         );
 
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
         //for debug only!
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($curl);
         $error = curl_error($curl);
@@ -113,9 +110,10 @@ class Property {
         );
 
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        
         //for debug only!
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($curl);
         $error = curl_error($curl);

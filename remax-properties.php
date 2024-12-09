@@ -98,7 +98,6 @@ if(!function_exists("remax_properties_search")) {
         $property = NEW Property;
         $provinces = $property->getAgentProvices();
         $properties_url = get_option('remax_properties_page_url');
-
         $city = isset($_GET['province']) ? $_GET['province'] : '';
         $minPrice = isset($_GET['min-price']) ? $_GET['min-price'] : '';
         $maxPrice = isset($_GET['max-price']) ? $_GET['max-price'] : '';
@@ -130,10 +129,6 @@ if(!function_exists("remax_properties_slider")) {
         $property = NEW Property;
         $properties = $property->getPropertiesData('properties');
 
-        // echo "<pre>";
-        // var_dump($properties->data);
-        // echo "</pre>";
-
         wp_enqueue_style("properties-slider-styles", plugins_url("assets/css/properties-slider-styles.css", __FILE__), array(), '1.0', "all");
         wp_enqueue_style("swiper-bundle-css", "https://unpkg.com/swiper@8/swiper-bundle.min.css", array(), "8.1.4", "all");
         wp_enqueue_script("swiper-bundle-scripts", "https://unpkg.com/swiper@8/swiper-bundle.min.js", array(), "8.1.4", true);
@@ -141,7 +136,8 @@ if(!function_exists("remax_properties_slider")) {
 
         ob_start();
         require_once __DIR__ . "/templates/properties-slider.php";
-        return ob_get_clean();
+        $template = ob_get_clean();
+		return $template;
     }
 }
 
@@ -164,34 +160,21 @@ if (!function_exists("remax_properties_front_page")) {
             $url = get_option('remax_properties_page_url');
             $property_url = $url . "?code=" . $_GET['property-id'];  
             wp_redirect($property_url);
-            
             exit;
         }
 
-
         $property = NEW Property;
-
-        $page_url = get_option('home') . $_SERVER["REDIRECT_URL"];
-
+        $page_url = get_option('remax_properties_page_url');
         $card_container_class = '';
+
         if (is_active_sidebar('rp_sidebar')) {
             $card_container_class = 'rp-content';
             wp_enqueue_style("property-styles", plugins_url("assets/css/property-styles.css", __FILE__), array(), '1.0', "all");
         }
 
-        // wp_enqueue_style("property-listing-bootstrap", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css", array(), '1.0', "all");
-
         if(isset($_GET['code'])) {
             $property_code = $_GET['code'];
             $property_details = $property->getPropertiesData('property', $property_code);
-
-            // echo "<pre>";
-            // var_dump($property_details);
-            // echo "</pre>";
-
-            // echo "<pre>";
-            // var_dump($featured_properties);
-            // echo "</pre>";
 
             if ($property_details == '' || $property_details == NULL) {
                 echo "<h2 style='text-align: center; width: 100%;'>Sin Resultados</h2>";
@@ -199,6 +182,7 @@ if (!function_exists("remax_properties_front_page")) {
             }
 
             $card_container_class = '';
+
             if (is_active_sidebar('rpd_sidebar') || isset($property_details->data->agent_list[0])) {
                 $card_container_class = 'rp-content';
             }
@@ -209,47 +193,33 @@ if (!function_exists("remax_properties_front_page")) {
             }
             
             $property_details = $property_details->data;
-            // echo "<pre>";
-            // var_dump(plugins_url("assets/css/property-details-page.css", __FILE__));
-            // echo "</pre>";
 
             wp_enqueue_style("property-details-css", plugins_url("assets/css/property-details-page.css", __FILE__), array(), '1.0');
-
             wp_enqueue_style("swiper-bundle-css", "https://unpkg.com/swiper@8/swiper-bundle.min.css", array(), "8.1.4", "all");
             wp_enqueue_script("swiper-bundle-scripts", "https://unpkg.com/swiper@8/swiper-bundle.min.js", array(), "8.1.4", true);
             wp_enqueue_script("property-details-scripts", plugins_url("assets/js/property-details-page.js", __FILE__), array('jquery'), '1.0', true);
 
             ob_start();
             require_once __DIR__ . "/templates/property-details-page.php";
-            return ob_get_clean();
+            $template = ob_get_clean();
+			return $template;
         }
 
         $properties = $property->getPropertiesData('properties');
-
-        // do_action('logger', $properties);
-        // echo "<pre>";
-        // var_dump($properties);
-        // echo "</pre>";
-
         $haveResult = isset($properties->data[0]);
-        
         $card_container_class = '';
+
         if (is_active_sidebar('rpl_sidebar')) {
             $card_container_class = 'rp-content';
         }
+
         wp_enqueue_style("property-styles", plugins_url("assets/css/property-styles.css", __FILE__), array(), '1.0', "all");
-
-        $page_url = get_option('home') . $_SERVER["REDIRECT_URL"];
-
-        // var_dump(plugins_url("assets/css/property-listing-page.css", __FILE__));
-        
         wp_enqueue_style("property-listing-page", plugins_url("assets/css/property-listing-page.css", __FILE__), array(), '1.0', "all");
-        // echo "<pre>";
-        // var_dump($klk);
-        // echo "</pre>";
+
         ob_start();
         require_once __DIR__ . "/templates/property-listing-page.php";
-        return ob_get_clean();
+        $template = ob_get_clean();
+		return $template;
     }
 }
 
